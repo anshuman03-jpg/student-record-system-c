@@ -50,6 +50,22 @@ int main() {
 // --- TODO 1: Implement the Add Student Function ---
 void add_student() {
     printf("\n--- ADD NEW STUDENT ---\n");
+    if(student_count == 100){
+        printf("Error! Database is full.\n");
+        return;
+    }else{
+        printf("Enter your name: ");
+        scanf("%s", database[student_count].name);
+        printf("\n");
+        printf("Enter your age: ");
+        scanf("%d", &database[student_count].age);
+        printf("\n");
+        printf("Enter GPA scored: ");
+        scanf("%f", &database[student_count].gpa);
+        printf("\n");
+        student_count = student_count+1;
+
+    }
     
     // STEP 1: Check if the database is full (student_count == 100). 
     // If it is, print an error and 'return;' immediately.
@@ -59,18 +75,29 @@ void add_student() {
     // (Hint for age: scanf("%d", &database[student_count].age); )
     
     // STEP 3: Increase student_count by 1 so the next student goes into the next slot!
-
-    printf("Function under construction!\n"); // Delete this line when you write your code
 }
 
 // --- TODO 2: Implement the View Students Function ---
 void view_students() {
     printf("\n--- STUDENT LIST ---\n");
-    
+    if(student_count == 0){
+        printf("No students in the database.\n");
+    }
+    else{
+
+        printf("-----Student Records-----\n");
+        for(int i = 0; i< student_count; i++){
+
+            printf("Student %d:\n", i+1);
+            printf("Name of student: %s\n", database[i].name);
+            printf("Age: %d\n", database[i].age);
+            printf("GPA scored: %.2f\n", database[i].gpa);
+            printf("----------------------------------\n");
+        }
+    }
     // STEP 1: If student_count is 0, print "No students in the database."
     
     // STEP 2: Otherwise, use a 'for' loop to go from i = 0 up to student_count.
     // Print out the details of database[i].
     
-    printf("Function under construction!\n"); // Delete this line when you write your code
 }
